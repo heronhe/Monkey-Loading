@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=750,user-scalable=no,target-densitydpi=device-dpi"> 
+<title>无标题文档</title>
+<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="js/Loading-Movieclip-v3.0.js"></script>
+<style>
+
+	*{font-size:40PX;}
+</style>
+</head>
+
+<body>
+
+	<div id="box">
+    	<div id="val"></div>
+        <div id="animate" style="width:750px; height:910px; position:relative;">
+        </div>
+         <div id="animate1" style="width:750px; height:910px; position:relative;">
+            <div id="cont" style=" width:300px; height:364px; position:absolute; overflow:hidden;">
+            </div>
+        </div>
+    </div>
+
+    <div id="imgbox"><img alts="images/ban_1.jpg" alt=""></div>
+    
+    <script type="text/javascript">
+    	//老版本为MF开头，新版本为MK开头
+
+		var loading = new MK_Loading({
+			LDpage: true,
+			LDdom: document.getElementById("imgbox"),
+			LDtween: false,
+			LDsuccess: function(){
+				console.log("加载完成");
+			}
+		});
+		
+		loading.addEventListener("update",function(){
+			console.log("加载更新");
+		});
+		
+		loading.addEventListener("complete",function(){
+			//图片帧
+			var animateImg = new MK_animateSheet({
+				parents: document.getElementById("animate"),
+				type: "canvas",
+				//widht:100,
+				//height:500,
+				imgList: list,
+				step: 1,
+				times: 20,
+				loop: false
+			});
+			
+			animateImg.addEventListener("update",function(){
+					console.log(new Date().getTime());
+				});
+			animateImg.addEventListener("complete",function(){
+					console.log("播放完成");
+				});
+
+			console.log(animateImg)
+			
+			animateImg.play();
+			
+			// //拼接图片
+			var animateImg1=new MK_animateSprite({
+				parents:document.getElementById("animate1"),
+				type:"canvas",
+				width:300,
+				height:364,
+				imgList:imgs,
+				row:6,
+				column:5,
+				step:1,
+				times:100,
+				loop:true
+			});
+			// animateImg1.setEnd(100);
+			animateImg1.addEventListener("update",function(n){
+					console.log(n);
+				});
+			animateImg1.addEventListener("complete",function(){
+					
+				});
+				
+			
+			animateImg1.play();
+			
+
+			// var ld2=new MF_Loading({
+			// 	LDpage:false,
+			// 	LDtween:false,
+			// 	LDup:function(v){
+			// 		$("#val").html(v);
+			// 	},
+			// 	LDsuccess:function(){
+			// 		console.log("加载完成2");
+
+			// 		var animateImg=new MF_animateSheet({
+			// 			parents:document.getElementById("animate"),
+			// 			type:"img",
+			// 			imgList:list,
+			// 			step:1,
+			// 			times:20,
+			// 			loop:true
+			// 		});
+					
+			// 		animateImg.play();
+			// 	}
+			// });
+
+			// var list=ld2.addImgSheet({
+			// 	imgPrefix:"images/乐事0602_000",
+			// 	imgType:"png",
+			// 	start:1,
+			// 	length:40,
+			// 	step:1,
+			// 	mask:'00'
+			// });
+
+			//ld2.start();
+			
+			
+		});
+		
+		//添加图片加载内容
+		//console.log(loading.add({type:"audio",src:"music1.mp3"}));
+		//console.log(loading.add($("img"))[0].getDom());
+		//console.log(loading.add($("#imgbox")));
+		//console.log(loading.add(document.getElementById("img1")));
+		
+		//添加图片播放帧
+		var list=loading.addImgSheet({
+			imgPrefix:"images/乐事0602_000",
+			imgType:"png",
+			start:1,
+			length:40,
+			step:1,
+			mask:'00'
+		});
+
+		var imgs=loading.add({type:"img",src:"images/stt-animate.png"});
+
+		loading.addAjax(function(cb){
+	        setTimeout(function(){cb(null, true);}, 2000);
+	    });
+		//开始加载
+		loading.start();
+
+		//console.log(loading)
+
+	</script>
+
+</body>
+</html>
