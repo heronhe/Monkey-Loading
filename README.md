@@ -44,11 +44,12 @@ LDsuccess：加载完成回调方法
 
 传递类型和初始化的LDdom一致，返回数组类型加载对象，获取对象中的dom对象的方法为getDom，例如：
 
-var logo = loadingPage.add({type:"img",src:"logo.png"});
+	var logo = loadingPage.add({type:"img",src:"logo.png"});
 
-var logoElem = logo[0]. getDom(); 或者
+	var logoElem = logo[0]. getDom(); 
+或者
 
-var logoElem = logo[0]. e;
+	var logoElem = logo[0]. e;
 
 注意：只有加载dom对象才拥有方法和属性，请在加载完成之后开始调用；
 
@@ -59,14 +60,14 @@ var logoElem = logo[0]. e;
 
 实例：
 
-loading.addImgSheet({
-	imgPrefix:"images/乐事0602_000",
-	imgType:"png",
-	start:1,
-	length:40,
-	step:1,
-	mask:'00'
-})
+	loading.addImgSheet({
+		imgPrefix:"images/乐事0602_000",
+		imgType:"png",
+		start:1,
+		length:40,
+		step:1,
+		mask:'00'
+	})
 
 imgPrefix：图片名称前缀；注意编号小于10的时候前面需要加0，如01
 
