@@ -146,16 +146,27 @@ Name值为complete，加载完成时间，类似初始化的LDup
 	});
 	
 参数说明：
+
 Parents：动画显示位置的dom对象
+
 Type:播放图片显示类型，canvas：用canvas进行播放，img：是用images进行播放
+
 Width：宽
+
 Height：高
+
 imgList：需要播放的加载完成图片对象，此参数必须为当前load加载返回对象
+
 row：拼接图片行数 此参数只在MK_animateSprite对象
+
 column：拼接图片列 此参数只在MK_animateSprite对象
+
 step：播放步长，可跳帧播放
+
 times：播放动画刷新时间
+
 loop：boolean类型，是否循环播放
+
 
 2.方法
 
