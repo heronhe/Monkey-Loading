@@ -549,10 +549,11 @@ var MK_animateImages=(function(){
 				self.dispatchEvent(new Event("complete",self.progress));
 				if(self.loop)
 					self.progress = self.startIndex;
-				else
+				else{
 					self.stop();
-
-				return;
+					return;
+				}
+				
 			}
 			self.toProgress(self.progress);
 			self.dispatchEvent(new Event("update",self.progress));
