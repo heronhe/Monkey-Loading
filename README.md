@@ -188,7 +188,7 @@ loop：boolean类型，是否循环播放
 
 （5）toProgress(val)
 
-设置动画播放位置，val参数不能大于播放帧数
+设置动画播放位置，val参数不能大于播放帧数，int类型
 
 （6）setStart(val)
 
@@ -198,7 +198,7 @@ loop：boolean类型，是否循环播放
 
 倒播动画
 
-（9）addEventListener(name,function)
+（8）addEventListener(name,function)
 
 动画事件
 
@@ -217,6 +217,6 @@ n：n为当前帧数以内的任何值，如：
 播放到15帧的时候，打印出15
 
 
-（8）setEnd (val)
+（9）setEnd (val)
 
 设置播放结束帧数，int类型
