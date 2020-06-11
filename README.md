@@ -84,30 +84,18 @@ mask：图片编号字符长度，例如图片最大数为250，mask值为000，
 
 （3）start()
 
-开始播放动画
+开始加载
 
-（4）inverse()
+（4）addEventListener(name,function)
 
-倒播动画
-
-（5）pause()
-
-暂停播放动画
-
-（6）stop()
-
-停止动画
-
-（7）addEventListener(name,function)
-
-添加侦听事件
+加载添加侦听事件
 
 Name值为update，加载更新事件，类似初始化的LDup
 
 Name值为complete，加载完成时间，类似初始化的LDup
 
 
-（8）addAjax(function)
+（5）addAjax(function)
 
 添加ajax，将ajax作为load一部分，ajax请求完成之后调用回掉方法，也可以作为延时loading来使用，通过setTimeOut来控制延时时间，使用方法如下：
 
@@ -204,9 +192,13 @@ loop：boolean类型，是否循环播放
 
 （6）setStart(val)
 
-设置动画播放起始位置，注意设置动画起始位置之后，循环播放的时候会以设置位置为起始播放位置
+设置动画播放起始位置，注意设置动画起始位置之后，循环播放的时候会以设置位置为起始播放位置，int类型
 
-（7）addEventListener(name,function)
+（7）inverse()
+
+倒播动画
+
+（9）addEventListener(name,function)
 
 动画事件
 
@@ -227,4 +219,4 @@ n：n为当前帧数以内的任何值，如：
 
 （8）setEnd (val)
 
-设置播放结束帧数
+设置播放结束帧数，int类型
